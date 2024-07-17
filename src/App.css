@@ -1,12 +1,49 @@
 
+
+
+.header-container{
+    background-color: lightgreen;
+
+}
+
+.header-parent{
+    margin-bottom: 1rem;
+    padding: .1rem 2rem;
+    background-color: #34c3eb;
+}
+.header-parent>ul{  
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: .5rem;
+}
+.header-parent>ul>li{
+   
+    list-style-type: none;
+}
+.header-link{
+ text-decoration: none;
+ font-weight: 500;
+}
+
+.header-link:hover{
+    padding: .1rem;
+   background-color:lightgreen;
+   border-radius: .3rem;
+   text-align: center;
+ 
+}
+
+
 .form-container{
     
     /* background-color: lightgreen; */
     display:flex;
     align-items: center;
     justify-content: center;
-    
-
 }
 
 .form-parent{
@@ -40,10 +77,67 @@
     border-radius: .3rem;
 }
 
+.form-note{
+    margin-left: 1rem;
+    margin-top: .3rem;
+    padding: .3rem;
+    border-radius: .3rem;
+
+}
 
 .visible{
+    margin-left: 1rem;
     background-color: lightgreen;
     padding: .3rem;
     width: max-content;
     border-radius: .3rem;
+}
+.invisible{
+    margin-left: 1rem;
+    padding: .3rem;
+    width: max-content;
+    border-radius: .3rem;
+    opacity:0;
+
+}
+.error{
+    background-color: white;
+    margin-left: 1rem;
+    padding: .3rem;
+    width: max-content;
+    border-radius: .3rem;
+    color: red;
+}
+
+/* Login Form */
+
+.signin{
+    margin-bottom: .1rem;
+}
+.form-signin-h4{
+    margin-top:.3rem;
+    margin-bottom: .5rem;
+}
+
+/* Foods Section */
+.food-container{
+    /* background-color: lightgreen; */
+    padding: 1rem;
+
+}
+.food-parent{
+    /* background-color: lightgreen; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1rem;
+    
+}
+.food-item{
+    width: 15%;
+   background-color:#dbb346;
+   text-align: center;
+   border-radius: .5rem;
+
 }

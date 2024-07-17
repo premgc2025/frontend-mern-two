@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 
 function Register() {
 
-    const [user, setuser] = useState({
+    const [user, setUser] = useState({
         name: "",
         email: "",
         password: "",
@@ -15,10 +17,12 @@ function Register() {
         text: ""
     })
 
+
+
     // Input Handle Function
     function inputHandle(event) {
 
-        setuser((preValue) => {
+        setUser((preValue) => {
             return (
                 { ...preValue, [event.target.name]: event.target.value }
             )
@@ -35,47 +39,41 @@ function Register() {
             headers: {
                 "Content-Type": "application/json"
             }
-
         })
-            .then((response) => {
-                console.log(response)
-
+            .then((response) => {               
                 if (response.status === 200) {
                     setMessage({
                         type: "visible",
                         text: "Create user Successful"
                     })
                 }
-              
-                    return response.json();
-               
+            
+                return response.json();})
+            .then((data) => {
+                             
 
-               
 
-            })
-            .then((data)=>{
-              
-                if(data.code===11000)
-                    {
-                        setMessage({
-                            type: "visible",
-                            text: data.errorResponse.errmsg
-                        })
-                    }
-             
-                  
+                if (data.code === 11000) {
+                    setMessage({
+                        type: "error",
+                        text: " This Email is already registered"
+                    })
+                }
 
-                
+                setTimeout(() => {
+                    setMessage({})
+                }, 5000);
             })
 
             .catch((err) => {
                 setMessage({
-                    type:"visible",
+                    type: "err",
                     text: err
                 })
                 console.log(err)
             })
 
+                
     }
 
 
@@ -103,9 +101,12 @@ function Register() {
                     <input className='inp' type="number" name="age" id="age" max={100} required placeholder='Enter Your Password' onChange={inputHandle} defaultValue={user.age} />
                 </div>
 
-                <button className='form-btn'>Submit</button>
+                <button className='form-btn' type='submit'>Submit</button>
+                <p className='form-note'>Already have an account? <Link to='/login' >Login</Link> </p>
 
                 <p className={message.type} >{message.text}</p>
+
+                
 
 
             </form>
