@@ -6,8 +6,8 @@
 
 }
 
-.header-parent{
-    margin-bottom: 1rem;
+.header-parent, .parent{
+    margin-bottom: .5rem;
     padding: .1rem 2rem;
     background-color: #34c3eb;
 }
@@ -37,10 +37,28 @@
  
 }
 
+/* Home Section */
+.home-container{
+    background-color:#f0f274;
+} 
+.home-parent{
+    margin-bottom: .5rem;
+    padding: .1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-title{
+    font-size: 1.5rem;
+    margin: .5rem 0 ;
+}
+.home-body{
+    margin:0;
+}
 
+/* Form Section */
 .form-container{
-    
-    /* background-color: lightgreen; */
     display:flex;
     align-items: center;
     justify-content: center;
@@ -97,12 +115,13 @@
     padding: .3rem;
     width: max-content;
     border-radius: .3rem;
-    opacity:0;
+    display: none;
 
 }
 .error{
     background-color: white;
     margin-left: 1rem;
+    margin-right: .1rem;
     padding: .3rem;
     width: max-content;
     border-radius: .3rem;
@@ -141,3 +160,111 @@
    border-radius: .5rem;
 
 }
+
+/* Track Component */
+
+.search-item{
+    width: 100%;
+    height: 2rem;
+    border-radius: .5rem;
+    text-indent:.3rem;
+    outline: nome;
+    border: .1rem solid  lightblue;
+    font-size: 1rem;
+}
+.track-parent{
+    position: relative;
+}
+.search-result{
+    background-color:#34c3eb;
+    position: absolute;
+}
+.search-eachitem{
+    margin: .2rem;
+    padding: .2rem;
+    background-color:lightgray;
+}
+
+/* Single Food - Food Unit */
+
+.foodunit-parent{
+    padding: 1rem 2rem;
+    width: 10rem;
+    background-color:#34c3eb;
+}
+.foodunit-image-div{
+    background-color: white;
+ 
+}
+.nutrition-title{
+    margin: .7rem 0 0;
+    font-weight: 700;
+    background-color: rosybrown;
+}
+.nutrition-parent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgreen;
+}
+.nutrition-list{
+    width: 50%;
+}
+.n-title{
+    font-size: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .1rem;
+    font-weight: 550;
+}
+.n-value{
+    font-size: .9rem;
+    margin: .1rem 0;
+}
+
+.nutrition-inp{
+   background-color: lightblue;
+   display: flex;
+   column-gap: .5rem;
+}
+
+.nutrition-inp-qty{
+    width: 75%;
+   border-radius: .2rem;
+   outline: none;
+   border: 1px solid lightblue;
+   text-indent: .1rem;
+}
+.nutrition-btn{
+    padding: .2rem;
+    border-radius: .1rem;
+    outline: none;
+    border: 1px solid skyblue;
+}
+
+/* Food Data Entry Form Section */
+
+.fooddata-parent{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.fooddata-form{
+    padding: 3rem 0;
+    width: 20rem;
+    background-color: #34c3eb;
+    border-radius: 1.5rem;    
+}
+
+.form-title{
+    padding: 0 1rem;
+}
+
+.form-inp-div{
+    padding: .1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+

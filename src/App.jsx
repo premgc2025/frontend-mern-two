@@ -10,6 +10,8 @@ import { useState } from 'react'
 import Private from './components/Private'
 import Header from './components/Header'
 import Foods from './components/Foods'
+import Home from './components/Home'
+import FoodData from './components/FoodData'
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
 
   return (
     <>
-      <h1>This is React Page</h1>
+      {/* <h1>This is React Page</h1> */}
     
 
       <authContex.Provider value={{loggedUser, setLoggedUser}} >
@@ -30,6 +32,7 @@ function App() {
 
       <BrowserRouter>
       <Header/>
+      <Home/>
     
       <Routes>
   
@@ -37,8 +40,9 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/track' element={<Private Component={Track}/>} />
-        {/* <Route path='/foods' element={<Private Component={Foods}/>} /> */}
-        <Route path='/foods' element={<Foods/>} />
+        <Route path='/foods' element={<Private Component={Foods}/>} />
+        <Route path='/fooddata' element={<FoodData/>}/>
+       
         
 
 

@@ -21,6 +21,7 @@ function Header() {
                 <li> <Link className='header-link'>Home</Link> </li>
                 <li> <Link to='/track' className='header-link'>Track</Link> </li>
                 <li> <Link to='/foods' className='header-link'>Foods</Link> </li>
+                <li> <Link to='/fooddata' className='header-link'>Food-Data</Link> </li>
                 <li> <Link to='/register' className='header-link'>Register</Link> </li>
                 <li> <Link to='login' className='header-link'>Login</Link> </li>
                 <li onClick={logoutHandle}> <Link to='logout' className='header-link'>Logout</Link> </li>
