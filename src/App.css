@@ -1,5 +1,7 @@
 
-
+*{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 .header-container{
     background-color: lightgreen;
@@ -33,8 +35,12 @@
     padding: .1rem;
    background-color:lightgreen;
    border-radius: .3rem;
-   text-align: center;
- 
+   text-align: center; 
+}
+.active{
+    background-color:lightgreen;
+    padding: .2rem;
+    border-radius: .3rem;
 }
 
 /* Home Section */
@@ -128,6 +134,15 @@
     color: red;
 }
 
+.message-stiky
+{
+   position: fixed;
+    top:4.6rem;
+    left:7.5rem;
+    margin: 1rem;
+   
+}
+
 /* Login Form */
 
 .signin{
@@ -147,21 +162,103 @@
 .food-parent{
     /* background-color: lightgreen; */
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 3rem;
-    row-gap: 1rem;
-    
+    flex-wrap: wrap;   
+    justify-content: space-around;    
+    row-gap: 2rem;
+    background-color: rgb(248, 245, 246);    
 }
 .food-item{
-    width: 15%;
-   background-color:#dbb346;
+    width: 19rem;
+   
+   background-color:whitesmoke;
+   display: flex;
+   flex-wrap: wrap;  
+   justify-content: space-between;    
+   /* row-gap: 2rem; */
    text-align: center;
    border-radius: .5rem;
 
 }
 
-/* Track Component */
+.img-div{
+    width: 25rem;
+   
+
+}
+.img{
+    width: 19rem;  
+
+}
+.foods-table-title{
+    margin: .3rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.foods-table{
+  
+    width: 19rem;
+    border-collapse: collapse;
+ 
+    font-size: .9rem;
+   
+    }
+
+.foods-table>thead{
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+.foods-table th, .foods-table td{
+    padding: .1rem .2rem;
+    border: .1rem solid lightgrey;
+    text-align: center;
+}
+.food-table tbody tr:last-of-type{
+    border-bottom: .5rem solid rgb(133, 72, 72);
+}
+
+.macro-total{
+    background-color:#f0f274;
+}
+.macro-total-title{
+    color: black;   
+    font-size: 1rem;
+    background-color:lightpink;
+}
+
+.macros-parent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: .9rem;
+   
+}
+
+/* Single Food Section */
+
+.single-food{ 
+    position: absolute;
+    top:12.8rem;
+    left:2rem;
+    z-index: 5;
+    width: 20rem;
+}
+.foodunit-close{
+    position: absolute;
+   top:-1rem;
+    right: 1rem;
+    color: red;
+    font-weight: bolder;
+    font-size: 1rem;
+    background-color: white;
+    padding: .1rem;
+}
+
+.close-div{
+    display: none;
+}
+
 
 .search-item{
     width: 100%;
@@ -223,23 +320,37 @@
 }
 
 .nutrition-inp{
+    width: 19rem;
    background-color: lightblue;
    display: flex;
    column-gap: .5rem;
 }
 
 .nutrition-inp-qty{
-    width: 75%;
+    width: 15rem;
    border-radius: .2rem;
    outline: none;
    border: 1px solid lightblue;
    text-indent: .1rem;
 }
 .nutrition-btn{
+    width: 4rem;
     padding: .2rem;
     border-radius: .1rem;
     outline: none;
     border: 1px solid skyblue;
+}
+
+.tracking-date{
+   width: max-content;
+    display: flex;  
+    margin-bottom: .3rem;
+    column-gap: .3rem;
+    background-color: white;
+}
+.tracking-date>p{
+    margin: 0;
+    background-color:lightgreen;
 }
 
 /* Food Data Entry Form Section */
@@ -268,3 +379,74 @@
     flex-direction: column;
 }
 
+
+
+/* Responsive for portable Device */
+
+@media(max-width:550px){
+   
+    .header-parent, .parent{
+        margin-bottom: .5rem;
+        padding: .1rem .3rem;
+        background-color: #34c3eb;
+    }
+    .header-parent>ul{  
+        padding: 0 .5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: .5rem;
+    }
+    .header-parent>ul>li{
+       
+        list-style-type: none;
+    }
+    .header-link{
+     text-decoration: none;
+     font-weight: 300;
+    }
+    
+
+    .home-parent{
+        margin-bottom: .2rem;
+        padding: .1rem .5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-title{
+        font-size: 1rem;
+        margin: .3rem 0 ;
+    }
+    .home-body{
+        font-size: .7rem;
+        margin:0;
+    }
+    .single-food{ 
+        position: absolute;
+        top:10.9rem;
+        left:2.9rem;
+        z-index: 5;
+        width: 20rem;
+    }
+
+    .tracking-date{
+        width: max-content;
+         display: flex;  
+         flex-direction: column;
+         margin-bottom: 1rem;
+         row-gap: .3rem;
+         justify-content: center;
+    
+         background-color: white;
+     }
+     .tracking-date>p{
+         margin: 0;
+         background-color:lightgreen;
+     }
+     
+
+}

@@ -82,7 +82,7 @@ function Login() {
               {
                 localStorage.setItem("nutrify",JSON.stringify(data))
                 loggedUser.setLoggedUser(data)
-                navigate('/header')
+                navigate('/')
            
 
               }

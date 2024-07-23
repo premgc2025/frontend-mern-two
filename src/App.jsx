@@ -12,6 +12,7 @@ import Header from './components/Header'
 import Foods from './components/Foods'
 import Home from './components/Home'
 import FoodData from './components/FoodData'
+import CheckYourMacros from './components/CheckYourMacros'
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
       <BrowserRouter>
       <Header/>
       <Home/>
+      {/* <Track/> */}
     
       <Routes>
   
@@ -40,8 +42,9 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/track' element={<Private Component={Track}/>} />
-        <Route path='/foods' element={<Private Component={Foods}/>} />
+        <Route path='/' element={<Private Component={Foods}/>} />
         <Route path='/fooddata' element={<FoodData/>}/>
+        <Route path='/checkyourmacros' element={<CheckYourMacros/>}/>
        
         
 

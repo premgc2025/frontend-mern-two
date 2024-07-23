@@ -8,7 +8,7 @@ function Track() {
   const loggedUser = useContext(authContex)
   const[foodsItem, setFoodsItem]= useState([])
   const[singleFood, setSingleFood] = useState(null);
-  console.log("singlefood",singleFood)
+  
   const[message, setMessage] = useState({
     type:"invisible",
     text:""
@@ -31,7 +31,7 @@ function Track() {
                 }
               )
               .then((res)=>res.json())
-              .then((data)=>{
+              .then((data)=>{               
                   if(data.Message===undefined){
                     console.log("data food",data)
                     setFoodsItem(data)
@@ -80,7 +80,7 @@ function Track() {
       </div>
 
       {
-        singleFood!==null ? <FoodUnit item ={singleFood}/> : null
+        singleFood!==null ? <FoodUnit  item ={singleFood}  /> : null
       }
     </div>
   )
