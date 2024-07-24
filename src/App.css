@@ -62,6 +62,12 @@
 .home-body{
     margin:0;
 }
+.login-name
+{
+    margin: 0;
+    text-align: right;
+    padding: 0 2rem;
+}
 
 /* Form Section */
 .form-container{

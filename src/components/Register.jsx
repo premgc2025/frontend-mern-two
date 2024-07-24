@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { baseurl } from '../../helper'
 
 
 function Register() {
-
     const [user, setUser] = useState({
         name: "",
         email: "",
@@ -11,17 +11,13 @@ function Register() {
         age: ""
     })
 
-
     const [message, setMessage] = useState({
         type: "invisible",
         text: ""
     })
 
-
-
     // Input Handle Function
     function inputHandle(event) {
-
         setUser((preValue) => {
             return (
                 { ...preValue, [event.target.name]: event.target.value }
@@ -33,26 +29,24 @@ function Register() {
     function submitHandle(event) {
         event.preventDefault();
 
-        fetch('http://localhost:5000/register', {
+        fetch(`${baseurl}/register`, {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
                 "Content-Type": "application/json"
             }
         })
-            .then((response) => {               
+            .then((response) => {
                 if (response.status === 200) {
                     setMessage({
                         type: "visible",
                         text: "Create user Successful"
                     })
                 }
-            
-                return response.json();})
+
+                return response.json();
+            })
             .then((data) => {
-                             
-
-
                 if (data.code === 11000) {
                     setMessage({
                         type: "error",
@@ -72,10 +66,7 @@ function Register() {
                 })
                 console.log(err)
             })
-
-                
     }
-
 
     return (
         <div className="form-container">
@@ -105,10 +96,6 @@ function Register() {
                 <p className='form-note'>Already have an account? <Link to='/login' >Login</Link> </p>
 
                 <p className={message.type} >{message.text}</p>
-
-                
-
-
             </form>
         </div>
     )

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { authContex } from '../context/authContext';
 import { useContext } from 'react';
+import { baseurl } from '../../helper';
 
 
 
@@ -12,30 +13,17 @@ function Foods() {
         type:"invisible",
         text:""
     })
- 
-  
 
     const newFood = food.map((obj)=>({ ...obj}))
- 
-  
 
-
-
-    const [items,setItems] = useState(newFood)
-    
-    console.log("Food search",items)
-  
-
+    const [items,setItems] = useState(newFood)   
     const [gram, setGram] = useState(500)
-
    
-
-  
-   
+    // Fetch Foods
 
     useEffect(() => {
 
-        fetch("http://localhost:5000/foods", {
+        fetch(`${baseurl}/foods`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -95,7 +83,9 @@ function Foods() {
         console.log("data for Track",trackData)
         if(trackData.length!==0){
 
-            fetch('http://localhost:5000/trackings', {
+            // Fetch Track Food items
+
+            fetch(`${baseurl}/trackings`, {
                 method:"POST",
                 body:JSON.stringify(trackData),
                 headers: {
@@ -125,8 +115,6 @@ function Foods() {
                 console.log(err)
             })
         }
-
-
     }
 
    
@@ -135,18 +123,12 @@ function Foods() {
              <p className={`${message.type} message-stiky`} >{message.text}</p>
            
             <div className="food-parent">
-
                 {
                     items.map((item,i) => {
-                    
-
-
                         return (
-
-
                             <div className="food-item" key={i + 1} >
                                 <div className="img-div">
-                                    <img src={`http://localhost:5000/image/${item.imagepath}`} alt="img" className='img' />
+                                    <img src={`${baseurl}/image/${item.imagepath}`} alt="img" className='img' />
                                 </div>
                                 <p className='foods-table-title'>{item.name} (per {item.quantity}G)</p>
                                 <table key={i} className='foods-table'>
@@ -176,17 +158,11 @@ function Foods() {
                                         trackhandle(event,i)
                                     }}>Track</button>
                                 </div>
-                             
-                                
                             </div>
-                            
-
                         )
 
                     })
                 }
-
-
 
             </div>
            

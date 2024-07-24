@@ -18,42 +18,24 @@ function App() {
 
   const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem('nutrify')))
 
-  console.log("app loggedData",loggedUser)
-
-
-
   return (
     <>
-      {/* <h1>This is React Page</h1> */}
-    
-
       <authContex.Provider value={{loggedUser, setLoggedUser}} >
-
-     
-
       <BrowserRouter>
       <Header/>
       <Home/>
-      {/* <Track/> */}
-    
-      <Routes>
-  
 
+     <Routes>
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/track' element={<Private Component={Track}/>} />
         <Route path='/' element={<Private Component={Foods}/>} />
-        <Route path='/fooddata' element={<FoodData/>}/>
+        <Route path='/fooddata' element={<Private Component={FoodData}/>}/>
         <Route path='/checkyourmacros' element={<CheckYourMacros/>}/>
-       
-        
-
-
       </Routes>      
       
       </BrowserRouter>
       </authContex.Provider>
-     
       
     </>
   )

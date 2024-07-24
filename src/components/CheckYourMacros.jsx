@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 import { authContex } from '../context/authContext'
 import moment from 'moment'
-
+import { baseurl } from '../../helper'
 
 function CheckYourMacros() {
 
@@ -11,15 +11,11 @@ function CheckYourMacros() {
   const [items, setItems] = useState([])
   const [total, setTotal] = useState({})
 
-  console.log("total", total)
-  console.log("items for", items)
-  console.log("Name", loggedUser.loggedUser)
-
   function dateHandle(event) {
     const date = moment(event.target.value).format("YYYY-MM-DD")
     console.log("date", date)
 
-    fetch(`http://localhost:5000/trackings/${loggedUser.loggedUser.id}/${date}`, {
+    fetch(`${baseurl}/trackings/${loggedUser.loggedUser.id}/${date}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -29,15 +25,11 @@ function CheckYourMacros() {
 
 
       .then((res) => {
-        console.log(res)
+       
         return res.json()
       })
       .then((data) => {
         setItems(data)
-        console.log("data log", data)
-
-
-
       })
       .catch((err) => {
         console.log(err)
@@ -62,8 +54,6 @@ function CheckYourMacros() {
     }
 
     items.forEach((element) => {
-      console.log("element", element)
-
       macro.totalcalories += element.details.calories;
       macro.totalprotein += element.details.protein;
       macro.totalcarbs += element.details.carbohydrate;

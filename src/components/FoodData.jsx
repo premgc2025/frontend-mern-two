@@ -2,21 +2,23 @@
 import React, { useState } from 'react'
 import { useContext } from 'react';
 import { authContex } from '../context/authContext'
+import { baseurl } from '../../helper';
+
+
 
 function FoodData() {
     const loggedUser = useContext(authContex)
-    console.log(loggedUser.loggedUser)
 
+    console.log("formdata Token",loggedUser.loggedUser.token)
     const [foodsData, setFoodsData] = useState({
         name: "",
         calories: "",
-        protein: "",        
+        protein: "",
         carbohydrate: "",
         fat: "",
-        quantity:""
+        quantity: ""
     })
 
-    console.log("foodData", foodsData)
     const [message, setMessage] = useState({
         type: "invisible",
         text: ""
@@ -47,16 +49,19 @@ function FoodData() {
         formData.append("image", file)
         formData.append("name", foodsData.name)
         formData.append("calories", foodsData.calories)
-        formData.append("protein", foodsData.protein)       
+        formData.append("protein", foodsData.protein)
         formData.append("carbohydrate", foodsData.carbohydrate)
         formData.append("fat", foodsData.fat)
         formData.append("quantity", foodsData.quantity)
 
-        console.log("form", formData)
-
-        fetch('http://localhost:5000/foods', {
+        fetch(`${baseurl}/foods`, {
             method: "POST",
-            body: formData,
+            body:formData,
+            headers:
+            {
+            
+              "Authorization": `Bearer ${loggedUser.loggedUser.token}`
+            }
 
         })
             .then((res) => {
@@ -66,18 +71,13 @@ function FoodData() {
             })
             .then((data) => {
                 console.log("res Data", data.Message)
-              
+
             })
             .catch((err) => {
                 console.log(err)
             })
 
-
-
-
     }
-
-
 
 
     return (
@@ -99,7 +99,7 @@ function FoodData() {
                     <div className="form-inp-div">
                         <label htmlFor="proteinId">Protein</label>
                         <input type="number" id="protienId" name="protein" className='inp' required onChange={inputHandle} />
-                    </div>                   
+                    </div>
 
 
                     <div className="form-inp-div">
@@ -125,9 +125,6 @@ function FoodData() {
                     <button className='form-btn' type="submit" onClick={submitHandle} >Submit</button>
                     <p className={message.type}>{message.text}</p>
                 </form>
-
-
-
             </div>
         </div>
     )
