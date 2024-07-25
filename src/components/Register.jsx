@@ -56,7 +56,7 @@ function Register() {
 
                 setTimeout(() => {
                     setMessage({})
-                }, 5000);
+                }, 30000);
             })
 
             .catch((err) => {
