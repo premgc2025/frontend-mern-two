@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { baseurl } from '../../helper'
+import { useNavigate } from 'react-router-dom'
 
 
 function Register() {
@@ -15,6 +16,8 @@ function Register() {
         type: "invisible",
         text: ""
     })
+
+    const navigate = useNavigate();
 
     // Input Handle Function
     function inputHandle(event) {
@@ -42,6 +45,7 @@ function Register() {
                         type: "visible",
                         text: "Create user Successful"
                     })
+                    navigate('/login')
                 }
 
                 return response.json();
